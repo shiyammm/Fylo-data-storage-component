@@ -1,0 +1,231 @@
+:root {
+  --Pale-Blue: hsl(243, 100%, 93%);
+  --Grayish-Blue: hsl(229, 7%, 55%);
+  --Dark-Blue: hsl(228, 56%, 26%);
+  --Very-Dark-Blue: hsl(229, 57%, 11%);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  font-family: "Raleway", sans-serif;
+  text-rendering: optimizeSpeed;
+}
+
+/* Make images easier to work with */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: initial;
+  }
+}
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background-color: var(--Very-Dark-Blue);
+  background-image: url(images/bg-desktop.png);
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-position: bottom right;
+}
+main {
+  display: flex;
+  gap: 1.5rem;
+}
+.menus {
+  display: grid;
+  gap: 1.5rem;
+  width: 20rem;
+  height: 11rem;
+  border-radius: 0.5rem;
+  border-top-right-radius: 5rem;
+  padding: 2rem;
+  background-color: var(--Dark-Blue);
+}
+.logo {
+  width: 120px;
+  cursor: pointer;
+}
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+.icon {
+  background-color: var(--Very-Dark-Blue);
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.info {
+  width: 500px;
+  background-color: var(--Dark-Blue);
+  height: 9rem;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  position: relative;
+}
+
+p {
+  color: var(--Pale-Blue);
+  margin-bottom: 0.8rem;
+}
+.storage-info {
+  display: grid;
+  gap: 0.5rem;
+}
+.progress {
+  width: 100%;
+  height: 1rem;
+  border-radius: 1rem;
+  background-color: var(--Very-Dark-Blue);
+}
+.bar__progress {
+  width: 75%;
+  height: 0.8rem;
+  background-image: linear-gradient(
+    90deg,
+    hsl(6deg 100% 80%) 0%,
+    hsl(3deg 100% 79%) 11%,
+    hsl(360deg 100% 79%) 22%,
+    hsl(356deg 100% 77%) 33%,
+    hsl(353deg 100% 75%) 44%,
+    hsl(349deg 100% 73%) 56%,
+    hsl(345deg 100% 71%) 67%,
+    hsl(342deg 100% 69%) 78%,
+    hsl(338deg 100% 67%) 89%,
+    hsl(335deg 100% 65%) 100%
+  );
+  border-radius: 1rem;
+  display: flex;
+  margin-left: 2px;
+  margin-top: 2px;
+}
+.bar__progress:after {
+  content: "";
+  width: 10px;
+  margin-block: auto;
+  margin-left: auto;
+  margin-right: 2px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+}
+.legend {
+  display: flex;
+  justify-content: space-between;
+  color: var(--Pale-Blue);
+}
+.highlight {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  width: 10rem;
+  height: 4rem;
+  top: -2rem;
+  right: 2rem;
+  background-color: white;
+}
+.highlight::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -25px;
+  border-width: 25px;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+}
+.highlight h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+.gb__left {
+  display: inline;
+  vertical-align: middle;
+}
+.start {
+  font-size: 0.9rem;
+}
+.gb__left {
+  font-size: 0.7rem;
+  color: var(--Grayish-Blue);
+}
+
+@media (max-width: 375px) {
+  body {
+    background-image: url(images/bg-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  main {
+    display: grid;
+    gap: 0.1rem;
+  }
+  .info {
+    width: 20rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+  .highlight {
+    top: 75%;
+    right: 50%;
+    left: 25%;
+  }
+
+  .highlight h1 {
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .highlight::after {
+    content: none;
+  }
+}
